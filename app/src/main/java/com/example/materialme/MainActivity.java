@@ -36,10 +36,12 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Snackbar.make(view, "Refreshed!", Snackbar.LENGTH_LONG)
+                        .setAction("Data Reset!", resetSports(this)).show();
             }
         });
+
+
 
         // Initialize the RecyclerView.
         mRecyclerView = findViewById(R.id.recyclerView);
@@ -118,5 +120,19 @@ public class MainActivity extends AppCompatActivity {
 
         // Notify the adapter of the change.
         mAdapter.notifyDataSetChanged();
+    }
+
+    /**
+     * onClick method for th FAB that resets the data.
+     *
+     * @param view The button view that was clicked.
+     * @return
+     */
+    public View.OnClickListener resetSports(View.OnClickListener view) {
+        initializeData();
+        return view;
+    }
+
+    public void resetSports(View view) {
     }
 }
